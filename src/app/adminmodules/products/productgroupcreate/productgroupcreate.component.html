@@ -1,0 +1,19 @@
+<br /><br />
+<div class="container" >
+    <h3 style="text-align:center;color:cadetblue;font-family:Tahoma" >Product Group</h3>
+  <br />
+  <br />
+  <form class="example-container" [formGroup]="Forms">
+      <mat-form-field floatLabel="options.value.floatLabel">
+        <input matInput placeholder="Group" type="Text" formControlName="groupName" required>
+      </mat-form-field>
+      <br/>
+      <div class="input-group btn-group">
+        <button type="submit" (click)="FormSubmit()" class="form-control btn" style="height:40px;width:425px;background-color:black;color:whitesmoke" [disabled]="!Forms.valid">Submit</button>
+      </div>
+
+  </form>
+
+</div>
+<br /><br />
+
