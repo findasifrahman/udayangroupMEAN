@@ -10,7 +10,7 @@ export interface productmodels {
 })
 export class producgroupmodels {
   modelForms: FormGroup = this.formBuilder.group({
-    groupName: ["", Validators.required],
+    groupname: ["", Validators.required],
   });
 
   constructor(private formBuilder: FormBuilder) {}
