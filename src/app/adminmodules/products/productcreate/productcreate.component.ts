@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import {  FormBuilder, Validators, FormGroup } from '@angular/forms';
+import {  FormBuilder, Validators, FormGroup,FormControl } from '@angular/forms';
 import { ProductsService } from '../products.service';
 import { Router } from '@angular/router';
 import { __await } from 'tslib';
 import { MatSnackBar } from '@angular/material';
 import { productmodelsform,productmodels } from '../../../models/productmodels';
+import { ProductgroupService } from '../../productsgroup/productgroup.service';
 @Component({
   selector: 'app-productcreate',
   templateUrl: './productcreate.component.html',
@@ -21,11 +22,17 @@ export class ProductcreateComponent implements OnInit {
   _file4id: string = null;
 
   Forms: FormGroup;
-  constructor(private pservice:ProductsService,private snackBar: MatSnackBar,
+  selectFormControl = new FormControl('', Validators.required);
+  groups: any[];
+  constructor(private pservice:ProductsService,private snackBar: MatSnackBar,private pgService:ProductgroupService,
     private formBuilder: FormBuilder, private router: Router,private productModels:productmodelsform) { }
 
   ngOnInit() {
     this.Forms = this.productModels.modelForms;
+    this.pgService.getAll().subscribe((posts) => {
+      this.groups = posts as any;
+      console.log(posts);
+    });
   }
   async FormSubmit() {
     this.Forms.patchValue({
@@ -44,7 +51,7 @@ export class ProductcreateComponent implements OnInit {
             verticalPosition: 'top',
             panelClass: ['blue-snackbar']
           });
-          this.router.navigate(["/product/list"]);
+          this.router.navigate(["/productlist"]);
         },
         error => {
           console.log("error post", error);

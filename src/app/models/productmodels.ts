@@ -30,7 +30,7 @@ export class productmodelsform {
     description: ["",Validators.required],
     offer: [""],
     otherinfo: [""],
-    price: [""],
+    price: [0],
     image1: [""],
     image2: [""],
     image3: [""],

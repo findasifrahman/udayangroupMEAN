@@ -19,10 +19,20 @@
             <mat-label>Title</mat-label>
             <input matInput placeholder="Title" type="Text" formControlName="producttitle" required>
           </mat-form-field>
-          <mat-form-field floatLabel="options.value.floatLabel">
+          <mat-form-field>
             <mat-label>Group</mat-label>
-            <input matInput placeholder="Group" type="Text" formControlName="productgroup" required>
+            <select matNativeControl formControlName="productgroup" name="Group" required>
+
+              <option *ngFor="let car of groups" [value]="car.groupname">
+                {{car.groupname}}
+              </option>
+            </select>
+            <mat-error *ngIf="selectFormControl.hasError('required')">
+              This field is required
+            </mat-error>
+            <mat-hint>Pick a group</mat-hint>
           </mat-form-field>
+
           <mat-form-field floatLabel="options.value.floatLabel">
             <mat-label>Description</mat-label>
             <input matInput placeholder="price" type="Text" formControlName="description">

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {  FormBuilder, Validators, FormGroup } from '@angular/forms';
+import {  FormBuilder, Validators, FormGroup,FormControl } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { ProductgroupService } from '../productgroup.service';
 import { Router } from '@angular/router';
@@ -14,6 +14,8 @@ import { producgroupmodels } from '../../../models/productgroupmodels';
 export class ProductgroupeditComponent implements OnInit {
 
   id: any;
+  selectFormControl = new FormControl('', Validators.required);
+  groups: any[];
   Forms = this.productgroupmodels.modelForms;
   constructor(private productgroupmodels: producgroupmodels, private snackBar: MatSnackBar,
     private route: ActivatedRoute, private pgService: ProductgroupService, private formBuilder: FormBuilder, public _router: Router) { }
