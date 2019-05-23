@@ -7,15 +7,20 @@ import { SharedmodulesModule } from '../commonmodule/sharedmodule/sharedmodules.
 import { SocialcontactcardComponent } from './socialcontactcard/socialcontactcard.component';
 import { ThreecolmatgridComponent } from './threecolmatgrid/threecolmatgrid.component';
 import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
+import { FileUploadComponent } from './file-upload/file-upload.component';
+
+import { FileSelectDirective } from 'ng2-file-upload';
 @NgModule({
   declarations: [NavbarComponent, FooterComponent, SocialcontactcardComponent,
-     ThreecolmatgridComponent, ConfirmationDialogComponent],
+     ThreecolmatgridComponent, ConfirmationDialogComponent, FileUploadComponent,
+     FileSelectDirective],
   imports: [
     CommonModule,
     RouterModule,
     SharedmodulesModule
   ],
   entryComponents:[ConfirmationDialogComponent],
-  exports:[NavbarComponent,FooterComponent,SocialcontactcardComponent,ThreecolmatgridComponent,ConfirmationDialogComponent]
+  exports:[NavbarComponent,FooterComponent,SocialcontactcardComponent,ThreecolmatgridComponent,
+    ConfirmationDialogComponent,FileUploadComponent]
 })
 export class SharedComponentmoduleModule { }

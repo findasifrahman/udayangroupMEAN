@@ -2,16 +2,19 @@ import { NgModule } from '@angular/core';
 import { FormBuilder, Validators, FormGroup, ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 export interface productmodels {
-  productName: string,
-  productTitle: string,
-  productGroup: string,
+  productname: string,
+  producttitle: string,
+  productgroup: string,
+  productmeta: string,
+  productseo: string,
+  description: string,
+  offer:string,
+  otherinfo:string,
   price: number,
   image1: string,
   image2: string,
   image3: string,
-  description: string,
-  other1info:string,
-  other2info:string
+  image4: string
 }
 @NgModule({
   imports: [ReactiveFormsModule, FormsModule],
@@ -19,16 +22,19 @@ export interface productmodels {
 })
 export class productmodelsform {
   modelForms: FormGroup = this.formBuilder.group({
-    productName: ["", Validators.required],
-    productTitle: ["", Validators.required],
-    productGroup: [""],
+    productname: ["", Validators.required],
+    producttitle: ["", Validators.required],
+    productgroup: ["",Validators.required],
+    productmeta: [""],
+    productseo: [""],
+    description: ["",Validators.required],
+    offer: [""],
+    otherinfo: [""],
     price: [""],
     image1: [""],
     image2: [""],
     image3: [""],
-    description: [""],
-    other1info: [""],
-    other2info: [""]
+    image4: [""]
   });
 
   constructor(private formBuilder: FormBuilder) {}

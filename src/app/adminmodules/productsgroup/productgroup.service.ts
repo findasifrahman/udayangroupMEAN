@@ -23,8 +23,9 @@ export class ProductgroupService {
     return this.http.get<any>(routeurls.BASE_API_URL + routeurls.PRODUCT_GROUP_API_BASE_URL+ "/getbyid", { params: new HttpParams().set('id', id) });
   }
   update(id: any, obj: any): Observable<any> {
+    obj.Id = id;
     console.log(obj);
-    return this.http.put<any>(routeurls.BASE_API_URL + routeurls.PRODUCT_GROUP_API_BASE_URL + '/' + id, obj);
+    return this.http.put<any>(routeurls.BASE_API_URL + routeurls.PRODUCT_GROUP_API_BASE_URL , obj);
   }
   delete(id: any): Observable<any> {
     return this.http.delete<any>(routeurls.BASE_API_URL + routeurls.PRODUCT_GROUP_API_BASE_URL, { params: new HttpParams().set('id', id) });

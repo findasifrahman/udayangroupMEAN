@@ -15,7 +15,7 @@ export class ProductgroupeditComponent implements OnInit {
 
   id: any;
   Forms = this.productgroupmodels.modelForms;
-  constructor(private productgroupmodels: producgroupmodels, private snackBar: MatSnackBar, 
+  constructor(private productgroupmodels: producgroupmodels, private snackBar: MatSnackBar,
     private route: ActivatedRoute, private pgService: ProductgroupService, private formBuilder: FormBuilder, public _router: Router) { }
 
   ngOnInit() {
@@ -28,7 +28,7 @@ export class ProductgroupeditComponent implements OnInit {
       });
     })
   }
-   
+
   async FormSubmit() {
     const formValue = this.Forms.value;
     console.log(formValue);
@@ -37,7 +37,7 @@ export class ProductgroupeditComponent implements OnInit {
       this.snackBar.open('Data Updated Successfully', "Remove", {
         duration: 5000, verticalPosition: 'top', panelClass: ['blue-snackbar']
       });
-      this._router.navigate(['/userlist']);
+      this._router.navigate(['/productgrouplist']);
     },
       error => {
         console.log("error Update", error);
