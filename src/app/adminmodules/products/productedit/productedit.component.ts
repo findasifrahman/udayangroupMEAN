@@ -37,23 +37,31 @@ export class ProducteditComponent implements OnInit {
   ngOnInit() {
     this.Forms = this.productModels.modelForms;
     this.pgService.getAll().subscribe((posts) => {
-      //console.log(posts);
       this.groups = posts as any;
-      //console.log(this.groups);
     });
     this.route.params.subscribe(params => {
       this.id = params['id'];
       console.log("update id--" + params['id']);
       this.pservice.getbyid(this.id).subscribe((data) => {
+        this._file4id = data["image4"];
+        this._file3id = data["image3"]; //prev val assign
+        this._file2id = data["image2"];
+        this._file1id = data["image1"];
         this.Forms.patchValue(data);
         //this.selectFormControl = new FormControl(data["productgroup"], Validators.required);
-        this.defval = data["productgroup"];
-        console.log(data["productgroup"]);
+       // this.defval = data["productgroup"];
+        console.log(this.Forms);
       });
     })
   }
 
   async FormSubmit() {
+    this.Forms.patchValue({
+      image1: this._file1id,
+      image2: this._file2id,
+      image3: this._file3id,
+      image4: this._file4id
+    })
     const formValue = this.Forms.value;
     console.log(formValue);
     await this.pservice.update(this.id, formValue).subscribe(() => {
@@ -70,6 +78,18 @@ export class ProducteditComponent implements OnInit {
         });
       }
     );
+  }
+  file4id($event) {
+    this._file3id = $event; console.log("pic id arrived--" + $event);
+  }
+  file3id($event) {
+    this._file3id = $event; console.log("pic id arrived--" + $event);
+  }
+  file2id($event) {
+    this._file2id = $event; console.log("pic id arrived--" + $event);
+  }
+  file1id($event) {
+    this._file1id = $event; console.log("pic id arrived--" + $event);
   }
 
 }

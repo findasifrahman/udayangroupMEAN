@@ -6,9 +6,10 @@ import { SharedComponentmoduleModule } from '../../sharedComponentmodules/shared
 
 import { DirectivesModule } from '../../directives/directives.module';
 import { OurserviceComponent } from '../ourservice/ourservice.component';
+import { ViewproductComponent } from '../viewproduct/viewproduct.component';
 
 @NgModule({
-  declarations: [HomeComponent, OurserviceComponent],
+  declarations: [HomeComponent, OurserviceComponent, ViewproductComponent],
   imports: [
     CommonModule,
     SharedComponentmoduleModule,

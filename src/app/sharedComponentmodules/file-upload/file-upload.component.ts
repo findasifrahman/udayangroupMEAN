@@ -17,6 +17,7 @@ export class FileUploadComponent implements OnInit {
 
   fileid: string = null;// for delete purpose
   url =  routeurls.BASE_API_URL +  routeurls.FILE_UPLOAD_BASE_URL;
+  url_delete =  routeurls.BASE_API_URL +  routeurls.FILE_DELETE_BASE_URL;
   textcolorImage: string = "black";
 
   ImageDisable: boolean = true;
@@ -25,7 +26,7 @@ export class FileUploadComponent implements OnInit {
   picid: string = uuid();
   uploader = new FileUploader({
     url: this.url + "?picid=" + this.picid,
-    maxFileSize: 1024 * 1024 * 1
+    maxFileSize: 4096 * 1024 * 1
   });
   constructor(private http: HttpClient) { }
   ngOnChanges() {
@@ -40,6 +41,7 @@ export class FileUploadComponent implements OnInit {
     this.uploader.onAfterAddingFile = (file) => { this.uploaderAddingFileStatusChange(); }
     this.uploader.onSuccessItem = (item, response) => {
       let data = JSON.parse(response); //success server response
+      console.log(data);
       this.uploadeerOnSuccess(data);
       this.fileInput.nativeElement.value = '';
     }
@@ -70,17 +72,9 @@ export class FileUploadComponent implements OnInit {
     this.picidVal.emit(null);
   }
   fileInputRemove() {
-    //if (this.preVal == null)
-    {
-      this.http.post("/picture/delete?picid=" + this.fileid, null).subscribe(
+      this.http.get(  this.url_delete + "?picid=" + this.fileid).subscribe(
         data => { this.uploaderOnRemove(); /*this.picidVal = null*/ },
         error => { this.ImageText = "Error Deleting File"; })
-    }
-   /* else {
-      this.http.post("/picture/delete?picid=" + this.preVal, null).subscribe(
-        data => { this.uploaderOnRemove();  },
-        error => { this.ImageText = "Error Deleting File"; })
-    }*/
 
   }
 
