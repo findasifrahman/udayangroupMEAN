@@ -5,5 +5,6 @@ export const routeurls = Object.freeze({
   FILE_UPLOAD_BASE_URL:"/picture/upload",
   FILE_DELETE_BASE_URL:"/picture/delete",
   USER_API_BASE_URL: "/api/userModels",
+  LOGIN_API_BASE_URL: "/api/login"
   //... more of your variables
 });

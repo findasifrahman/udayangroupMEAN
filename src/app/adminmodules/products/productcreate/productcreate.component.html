@@ -1,92 +1,100 @@
+
+
+
+
 <br /><br />
-<div class="container" *ngIf="Forms">
-  <div class="row col-10" style="">
-    <h3 style="text-align:center;color:cadetblue;font-family:Tahoma" class="text-center">Add Product </h3>
+<div class="container row" *ngIf="Forms">
+  <div class="col-md-3" >
+      <app-sidenav></app-sidenav>
   </div>
-  <br />
-  <form class="example-container" [formGroup]="Forms">
-    <div class="col-md-10" style="">
-      <mat-tab-group mat-stretch-tabs class="example-stretched-tabs " #matgroup>
-        <mat-tab>
-          <ng-template mat-tab-label>
-            ProducT Detail
-          </ng-template>
-          <mat-form-field floatLabel="options.value.floatLabel">
-            <mat-label>Enter A Product</mat-label>
-            <input matInput placeholder="Simple placeholder" type="Text" formControlName="productname" required>
-          </mat-form-field>
-          <mat-form-field floatLabel="options.value.floatLabel">
-            <mat-label>Title</mat-label>
-            <input matInput placeholder="Title" type="Text" formControlName="producttitle" required>
-          </mat-form-field>
-          <mat-form-field>
-            <mat-label>Group</mat-label>
-            <select matNativeControl formControlName="productgroup" name="Group" required>
+  <div class="col-md-9">
 
-              <option *ngFor="let car of groups" [value]="car.groupname">
-                {{car.groupname}}
-              </option>
-            </select>
-            <mat-error *ngIf="selectFormControl.hasError('required')">
-              This field is required
-            </mat-error>
-            <mat-hint>Pick a group</mat-hint>
-          </mat-form-field>
+      <h3 style="text-align:center;color:cadetblue;font-family:Tahoma">Add Product </h3>
+   
+      <br />
+      <form class="example-container" [formGroup]="Forms">
+        <div class="col-md-12" >
+          <mat-tab-group mat-stretch-tabs class="example-stretched-tabs " #matgroup>
+            <mat-tab>
+              <ng-template mat-tab-label>
+                ProducT Detail
+              </ng-template>
+              <mat-form-field floatLabel="options.value.floatLabel">
+                <mat-label>Enter A Product</mat-label>
+                <input matInput placeholder="Simple placeholder" type="Text" formControlName="productname" required>
+              </mat-form-field>
+              <mat-form-field floatLabel="options.value.floatLabel">
+                <mat-label>Title</mat-label>
+                <input matInput placeholder="Title" type="Text" formControlName="producttitle" required>
+              </mat-form-field>
+              <mat-form-field>
+                <mat-label>Group</mat-label>
+                <select matNativeControl formControlName="productgroup" name="Group" required>
 
-          <mat-form-field floatLabel="options.value.floatLabel">
-            <mat-label>Description</mat-label>
-            <input matInput placeholder="price" type="Text" formControlName="description">
-          </mat-form-field>
-          <button mat-raised-button style="width:100%" color="warn" (click)='matgroup.selectedIndex = 1'>Go Next</button>
-        </mat-tab>
+                  <option *ngFor="let car of groups" [value]="car.groupname">
+                    {{car.groupname}}
+                  </option>
+                </select>
+                <mat-error *ngIf="selectFormControl.hasError('required')">
+                  This field is required
+                </mat-error>
+                <mat-hint>Pick a group</mat-hint>
+              </mat-form-field>
 
-        <mat-tab>
-          <ng-template mat-tab-label>
-            SEO data
-          </ng-template>
-          <mat-form-field floatLabel="options.value.floatLabel">
-            <mat-label>Price</mat-label>
-            <input matInput placeholder="price" type="Number" formControlName="price" >
-          </mat-form-field>
-          <mat-form-field floatLabel="options.value.floatLabel">
-            <mat-label>Meta</mat-label>
-            <input matInput placeholder="Meta" type="Text" formControlName="productmeta" >
-          </mat-form-field>
-          <mat-form-field floatLabel="options.value.floatLabel">
-            <mat-label>SEO</mat-label>
-            <input matInput placeholder="SEO" type="Text" formControlName="productseo" >
-          </mat-form-field>
-          <mat-form-field floatLabel="options.value.floatLabel">
-            <mat-label>Offer</mat-label>
-            <input matInput placeholder="price" type="Text" formControlName="offer">
-          </mat-form-field>
-          <mat-form-field floatLabel="options.value.floatLabel">
-            <mat-label>Other Info</mat-label>
-            <input matInput placeholder="price" type="Text" formControlName="otherinfo">
-          </mat-form-field>
-          <button mat-raised-button style="width:100%" color="warn" (click)='matgroup.selectedIndex = 2'>Go Next</button>
-        </mat-tab>
+              <mat-form-field floatLabel="options.value.floatLabel">
+                <mat-label>Description</mat-label>
+                <input matInput placeholder="price" type="Text" formControlName="description">
+              </mat-form-field>
+              <button mat-raised-button style="width:100%" color="warn" (click)='matgroup.selectedIndex = 1'>Go Next</button>
+            </mat-tab>
 
-        <mat-tab>
-          <ng-template mat-tab-label>
-            <mat-icon>thumb_down</mat-icon> Upload
-          </ng-template>
-          <app-file-upload [filenameinput]="filenameinput4" [preVal]="_file4id" (picidVal)="file4id($event)"></app-file-upload>
-          <br/>
-          <app-file-upload [filenameinput] ="filenameinput3" [preVal]="_file3id" (picidVal)="file3id($event)"></app-file-upload>
-          <br />
-          <app-file-upload [filenameinput]="filenameinput2" [preVal]="_file2id" (picidVal)="file2id($event)"></app-file-upload>
-          <br/>
-          <app-file-upload [filenameinput]="filenameinput1" [preVal]="_file1id" (picidVal)="file1id($event)"></app-file-upload>
-          <br/>
+            <mat-tab>
+              <ng-template mat-tab-label>
+                SEO data
+              </ng-template>
+              <mat-form-field floatLabel="options.value.floatLabel">
+                <mat-label>Price</mat-label>
+                <input matInput placeholder="price" type="Number" formControlName="price" >
+              </mat-form-field>
+              <mat-form-field floatLabel="options.value.floatLabel">
+                <mat-label>Meta</mat-label>
+                <input matInput placeholder="Meta" type="Text" formControlName="productmeta" >
+              </mat-form-field>
+              <mat-form-field floatLabel="options.value.floatLabel">
+                <mat-label>SEO</mat-label>
+                <input matInput placeholder="SEO" type="Text" formControlName="productseo" >
+              </mat-form-field>
+              <mat-form-field floatLabel="options.value.floatLabel">
+                <mat-label>Offer</mat-label>
+                <input matInput placeholder="price" type="Text" formControlName="offer">
+              </mat-form-field>
+              <mat-form-field floatLabel="options.value.floatLabel">
+                <mat-label>Other Info</mat-label>
+                <input matInput placeholder="price" type="Text" formControlName="otherinfo">
+              </mat-form-field>
+              <button mat-raised-button style="width:100%" color="warn" (click)='matgroup.selectedIndex = 2'>Go Next</button>
+            </mat-tab>
 
-          <div class="input-group btn-group">
-            <button type="submit" (click)="FormSubmit()" class="form-control btn" style="height:40px;width:425px;background-color:black;color:whitesmoke" [disabled]="!Forms.valid">Submit</button>
-          </div>
-        </mat-tab>
-      </mat-tab-group>
-    </div>
-  </form>
+            <mat-tab>
+              <ng-template mat-tab-label>
+                <mat-icon>thumb_down</mat-icon> Upload
+              </ng-template>
+              <app-file-upload [filenameinput]="filenameinput4" [preVal]="_file4id" (picidVal)="file4id($event)"></app-file-upload>
+              <br/>
+              <app-file-upload [filenameinput] ="filenameinput3" [preVal]="_file3id" (picidVal)="file3id($event)"></app-file-upload>
+              <br />
+              <app-file-upload [filenameinput]="filenameinput2" [preVal]="_file2id" (picidVal)="file2id($event)"></app-file-upload>
+              <br/>
+              <app-file-upload [filenameinput]="filenameinput1" [preVal]="_file1id" (picidVal)="file1id($event)"></app-file-upload>
+              <br/>
 
+              <div class="input-group btn-group">
+                <button type="submit" (click)="FormSubmit()" class="form-control btn" style="height:40px;width:425px;background-color:black;color:whitesmoke" [disabled]="!Forms.valid">Submit</button>
+              </div>
+            </mat-tab>
+          </mat-tab-group>
+        </div>
+      </form>
+  </div>
 </div>
 <br /><br />

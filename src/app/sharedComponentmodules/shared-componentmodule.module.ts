@@ -11,11 +11,13 @@ import { FileUploadComponent } from './file-upload/file-upload.component';
 
 import { FileSelectDirective } from 'ng2-file-upload';
 import { ProductviewcardComponent } from './productviewcard/productviewcard.component';
+import { SidenavComponent } from './sidenav/sidenav.component';
 @NgModule({
   declarations: [NavbarComponent, FooterComponent, SocialcontactcardComponent,
      ThreecolmatgridComponent, ConfirmationDialogComponent, FileUploadComponent,
      FileSelectDirective,
-     ProductviewcardComponent],
+     ProductviewcardComponent,
+     SidenavComponent],
   imports: [
     CommonModule,
     RouterModule,
@@ -23,6 +25,6 @@ import { ProductviewcardComponent } from './productviewcard/productviewcard.comp
   ],
   entryComponents:[ConfirmationDialogComponent],
   exports:[NavbarComponent,FooterComponent,SocialcontactcardComponent,ThreecolmatgridComponent,
-    ConfirmationDialogComponent,FileUploadComponent,ProductviewcardComponent]
+    ConfirmationDialogComponent,FileUploadComponent,ProductviewcardComponent,SidenavComponent]
 })
 export class SharedComponentmoduleModule { }

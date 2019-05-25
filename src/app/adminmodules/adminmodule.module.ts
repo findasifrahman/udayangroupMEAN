@@ -16,9 +16,13 @@ import { ProductdetailComponent } from './products/productdetail/productdetail.c
 
 import { producgroupmodels } from '../models/productgroupmodels';
 import { productmodelsform } from '../models/productmodels';
+import { LoginComponent } from './login/login.component';
+
+
 @NgModule({
   declarations: [ProductgrouplistComponent, ProductgroupcreateComponent, ProductgroupeditComponent,
-    ProductcreateComponent,ProductlistComponent,ProducteditComponent,ProductdetailComponent,
+    ProductcreateComponent,ProductlistComponent,ProducteditComponent,ProductdetailComponent, LoginComponent
+    
     //FileUploadComponent
   ],
   imports: [
@@ -26,7 +30,7 @@ import { productmodelsform } from '../models/productmodels';
     ReactiveFormsModule,producgroupmodels,HttpClientModule,productmodelsform
   ],
   exports:[ProductgrouplistComponent, ProductgroupcreateComponent, ProductgroupeditComponent,
-    ProductcreateComponent,ProductlistComponent,ProducteditComponent,ProductdetailComponent
+    ProductcreateComponent,ProductlistComponent,ProducteditComponent,ProductdetailComponent,LoginComponent
   ]
 })
 export class AdminmoduleModule { }

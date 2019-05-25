@@ -1,11 +1,15 @@
 <br /><br />
-<div class="container" *ngIf="Forms">
-  <div class="row col-10" style="">
-    <h3 style="text-align:center;color:cadetblue;font-family:Tahoma" class="text-center">Add Product </h3>
+<div class="container row" *ngIf="Forms">
+  <div class="col-md-3" >
+      <app-sidenav></app-sidenav>
   </div>
+  <div class="col-md-9">
+
+  <h3 style="text-align:center;color:cadetblue;font-family:Tahoma" class="text-center">Edit Product </h3>
+  
   <br />
   <form class="example-container" [formGroup]="Forms">
-    <div class="col-md-10" style="">
+    <div class="col-md-12" style="">
       <mat-tab-group mat-stretch-tabs class="example-stretched-tabs " #matgroup>
         <mat-tab>
           <ng-template mat-tab-label>
@@ -87,6 +91,6 @@
       </mat-tab-group>
     </div>
   </form>
-
+</div>
 </div>
 <br /><br />

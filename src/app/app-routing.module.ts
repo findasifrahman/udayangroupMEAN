@@ -17,6 +17,10 @@ import { ClientsComponent } from './usermodules/clients/clients.component';
 import { AboutusComponent } from './usermodules/aboutus/aboutus.component';
 import { ContactusComponent } from './usermodules/contactus/contactus.component';
 import { ProductdetailComponent } from './usermodules/productdetail/productdetail.component';
+
+import { LoginComponent } from './adminmodules/login/login.component';
+
+import { JwtModule } from '@auth0/angular-jwt';
 const routes: Routes = [
   { path:'', component: HomeComponent, pathMatch: 'full' },
   { path:'services', component: OurserviceComponent},
@@ -33,10 +37,23 @@ const routes: Routes = [
   { path: 'productcreate', component: ProductcreateComponent},
   { path: 'productlist', component: ProductlistComponent},
   { path: 'productupdate/:id', component: ProducteditComponent},
-];
 
+  { path: 'admin', component: LoginComponent},
+];
+export function mytokenGetter() {
+  //return this.logservice.getUserLogStatus();
+  return localStorage.getItem('jwt');
+}
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes),
+    JwtModule.forRoot({/* automatically assign bearer token with every http request service*/
+      config: {
+        tokenGetter: mytokenGetter,
+        whitelistedDomains: ['localhost:5000'],
+        blacklistedRoutes: []
+      }
+    })
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
