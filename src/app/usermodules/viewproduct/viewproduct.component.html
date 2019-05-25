@@ -1,25 +1,44 @@
 
+<br/>
 <div class="row" >
-  <div clas="col-md-6">
-
-    <mat-list role="list" >
-      <mat-list-item *ngFor="let hero of AllElement" role="listitem">{{hero.productname}}</mat-list-item>
-    </mat-list>
+  <div class="col-md-3" style="padding-left: 50px ;">
+      <mat-list role="list" >
+        <mat-list-item *ngFor="let hero of gr" role="listitem">
+          <a mat-flat-button color="primary" style="width: 100% !important" (click)="changelist(hero.groupname)">{{hero.groupname}}</a>          
+        </mat-list-item>
+      </mat-list>  
   </div>
 
-  <div class="col-md-6">
+  <div class="col-md-9">
         <div *ngFor="let hero of AllElement;let i=index">
-          <div *ngIf="i % 2 ==0" >
+          <div *ngIf="i % 4 ==0" >
             <div class="row">
-                <div class="col-md-6" *ngIf="AllElement[i + 0]">
-                  <app-productviewcard [name]="AllElement[i + 0].productname"
+                <div class="col-md-3" *ngIf="AllElement[i + 0]">
+                  <a (click)="proclick(AllElement[i + 0].Id)"><app-productviewcard [name]="AllElement[i + 0].productname"
                     [image]="uri(AllElement[i + 0].image1)" [title]="AllElement[i + 0].producttitle"></app-productviewcard>
+                  </a>
                 </div>
-                <div class="col-md-6" *ngIf="AllElement[i + 1]">
-                    <app-productviewcard [name]="AllElement[i + 1].productname"
-                      [image]="uri(AllElement[i + 1].image1)" [title]="AllElement[i + 1].producttitle"></app-productviewcard>
+          
+                <div class="col-md-3" *ngIf="AllElement[i + 1]">
+                    <a (click)="proclick(AllElement[i + 1].Id)">
+                      <app-productviewcard [name]="AllElement[i + 1].productname"
+                        [image]="uri(AllElement[i + 1].image1)" [title]="AllElement[i + 1].producttitle"></app-productviewcard>
+                    </a>
                 </div>
+                <div class="col-md-3" *ngIf="AllElement[i + 2]">
+                  <a (click)="proclick(AllElement[i + 2].Id)">
+                    <app-productviewcard [name]="AllElement[i + 2].productname"
+                      [image]="uri(AllElement[i + 2].image1)" [title]="AllElement[i + 2].producttitle"></app-productviewcard>
+                  </a>
+              </div>
+              <div class="col-md-3" *ngIf="AllElement[i + 3]">
+                <a (click)="proclick(AllElement[i + 3].Id)">
+                  <app-productviewcard [name]="AllElement[i + 3].productname"
+                    [image]="uri(AllElement[i + 3].image1)" [title]="AllElement[i + 3].producttitle"></app-productviewcard>
+                </a>
+              </div>
             </div>
+            <br/>
           </div>
         </div>
   </div>

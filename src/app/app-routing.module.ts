@@ -13,10 +13,18 @@ import { ProductcreateComponent } from './adminmodules/products/productcreate/pr
 import { ProductlistComponent } from './adminmodules/products/productlist/productlist.component';
 import { ProducteditComponent } from './adminmodules/products/productedit/productedit.component';
 
+import { ClientsComponent } from './usermodules/clients/clients.component';
+import { AboutusComponent } from './usermodules/aboutus/aboutus.component';
+import { ContactusComponent } from './usermodules/contactus/contactus.component';
+import { ProductdetailComponent } from './usermodules/productdetail/productdetail.component';
 const routes: Routes = [
   { path:'', component: HomeComponent, pathMatch: 'full' },
   { path:'services', component: OurserviceComponent},
   { path:'viewproduct', component: ViewproductComponent},
+  { path:'clients', component: ClientsComponent},
+  { path:'aboutus', component: AboutusComponent},
+  { path:'contactus', component: ContactusComponent},
+  { path: 'productdetail/:id', component: ProductdetailComponent},
 
   { path:'productgroupcreate', component: ProductgroupcreateComponent},
   { path: 'productgrouplist', component: ProductgrouplistComponent},

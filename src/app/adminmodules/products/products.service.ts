@@ -18,6 +18,9 @@ export class ProductsService {
   getAll(): Observable<any> {
     return this.http.get<any>(routeurls.BASE_API_URL + routeurls.PRODUCT_API_BASE_URL);//.pipe(map(response => response as productmodels));//.subscribe(result => {console.log(result);});
   }
+  getbygroup(gr:any): Observable<any> {
+    return this.http.get<any>(routeurls.BASE_API_URL + routeurls.PRODUCT_API_BASE_URL + "/getbygroup", { params: new HttpParams().set('group', gr) });//.pipe(map(response => response as productmodels));//.subscribe(result => {console.log(result);});
+  }
   getbyid(id: any): Observable<any> {
     return this.http.get<any>(routeurls.BASE_API_URL + routeurls.PRODUCT_API_BASE_URL+ "/getbyid", { params: new HttpParams().set('id', id) });
   }

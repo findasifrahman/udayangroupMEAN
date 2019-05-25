@@ -7,9 +7,14 @@ import { SharedComponentmoduleModule } from '../../sharedComponentmodules/shared
 import { DirectivesModule } from '../../directives/directives.module';
 import { OurserviceComponent } from '../ourservice/ourservice.component';
 import { ViewproductComponent } from '../viewproduct/viewproduct.component';
+import { ClientsComponent } from '../clients/clients.component';
+import { AboutusComponent } from '../aboutus/aboutus.component';
+import { ContactusComponent } from '../contactus/contactus.component';
+import { ProductdetailComponent } from '../productdetail/productdetail.component';
 
 @NgModule({
-  declarations: [HomeComponent, OurserviceComponent, ViewproductComponent],
+  declarations: [HomeComponent, OurserviceComponent, ViewproductComponent, ClientsComponent, 
+    AboutusComponent, ContactusComponent, ProductdetailComponent],
   imports: [
     CommonModule,
     SharedComponentmoduleModule,
