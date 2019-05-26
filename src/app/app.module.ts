@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 import 'hammerjs';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,12 +12,13 @@ import {SharedmodulesModule} from './commonmodule/sharedmodule/sharedmodules.mod
 //
 import { UsermoduleModule } from './usermodules/usermodule/usermodule.module';
 import { SharedComponentmoduleModule  } from './sharedComponentmodules/shared-componentmodule.module';
-import { AdminmoduleModule } from './adminmodules/adminmodule.module';
+//import { AdminmoduleModule } from './adminmodules/adminmodule.module';
 //
-
+import { AdminlayoutComponent } from './otherLayouts/adminlayout/adminlayout.component';
+import { UserviewlayoutComponent } from './otherLayouts/userviewlayout/userviewlayout.component';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,AdminlayoutComponent,UserviewlayoutComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +27,8 @@ import { AdminmoduleModule } from './adminmodules/adminmodule.module';
     UsermoduleModule,
     SharedComponentmoduleModule,
     BrowserAnimationsModule,
-    AdminmoduleModule
+    HttpClientModule
+    //AdminmoduleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

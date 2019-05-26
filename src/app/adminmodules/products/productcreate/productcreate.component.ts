@@ -51,7 +51,7 @@ export class ProductcreateComponent implements OnInit {
             verticalPosition: 'top',
             panelClass: ['blue-snackbar']
           });
-          this.router.navigate(["/productlist"]);
+          this.router.navigate(["/admin/productlist"]);
         },
         error => {
           console.log("error post", error);

@@ -63,6 +63,6 @@ export class ProductgrouplistComponent implements OnInit {
   }//Delete end
 
   onUpdate(id) {
-    this._router.navigate(['/productgroupupdate', id]);
+    this._router.navigate(['/admin/productgroupupdate', id]);
   }
 }

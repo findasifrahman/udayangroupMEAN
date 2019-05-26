@@ -69,7 +69,7 @@ export class ProducteditComponent implements OnInit {
       this.snackBar.open('Data Updated Successfully', "Remove", {
         duration: 5000, verticalPosition: 'top', panelClass: ['blue-snackbar']
       });
-      this._router.navigate(['/productlist']);
+      this._router.navigate(['/admin/productlist']);
     },
       error => {
         console.log("error Update", error);

@@ -31,7 +31,7 @@ export class ProductgroupcreateComponent implements OnInit {
             verticalPosition: 'top',
             panelClass: ['blue-snackbar']
           });
-          this.router.navigate(["/productgroup/list"]);
+          this.router.navigate(["/admin/productgrouplist"]);
         },
         error => {
           console.log("error post", error);

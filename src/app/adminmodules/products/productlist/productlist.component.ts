@@ -66,6 +66,6 @@ export class ProductlistComponent implements OnInit {
   }//Delete end
 
   onUpdate(id) {
-    this._router.navigate(['/productupdate', id]);
+    this._router.navigate(['/admin/productupdate', id]);
   }
 }

@@ -20,10 +20,20 @@ import { productmodelsform } from '../models/productmodels';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './login/logout/logout.component';
 
+
+
 const routes: Routes = [
-  { path: 'product/list', component: ProductlistComponent },
-  { path: 'product/create', component: ProductcreateComponent },
-  { path: 'product/update/:id', component: ProducteditComponent },
+
+  { path: 'productlist', component: ProductlistComponent },
+  { path: 'productcreate', component: ProductcreateComponent },
+  { path: 'productupdate/:id', component: ProducteditComponent },
+
+  { path: 'productgroupcreate', component: ProductgroupcreateComponent },
+  { path: 'productgrouplist', component: ProductgrouplistComponent },
+  { path: 'productgroupupdate/:id', component: ProductgroupeditComponent },
+
+  { path: 'login', component : LoginComponent},
+  { path: 'logout', component : LogoutComponent},
 ];
 
 @NgModule({

@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
         verticalPosition: 'top',
         panelClass: ['blue-snackbar']
       });
-      this.router.navigate(["/productcreate"]);
+      this.router.navigate(["/admin/productcreate"]);
     }, err => {
       this.snackBar.open('Wrong Username Password',"Undo",{
         duration: 6000,
