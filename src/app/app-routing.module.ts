@@ -19,7 +19,7 @@ import { ContactusComponent } from './usermodules/contactus/contactus.component'
 import { ProductdetailComponent } from './usermodules/productdetail/productdetail.component';
 
 import { LoginComponent } from './adminmodules/login/login.component';
-
+import { LogoutComponent } from './adminmodules/login/logout/logout.component';
 import { JwtModule } from '@auth0/angular-jwt';
 const routes: Routes = [
   { path:'', component: HomeComponent, pathMatch: 'full' },
@@ -34,11 +34,18 @@ const routes: Routes = [
   { path: 'productgrouplist', component: ProductgrouplistComponent},
   { path: 'productgroupupdate/:id', component: ProductgroupeditComponent},
 
-  { path: 'productcreate', component: ProductcreateComponent},
+  /*{ path: 'productcreate', component: ProductcreateComponent},
   { path: 'productlist', component: ProductlistComponent},
-  { path: 'productupdate/:id', component: ProducteditComponent},
+  { path: 'productupdate/:id', component: ProducteditComponent},*/
 
   { path: 'admin', component: LoginComponent},
+  { path: 'logout', component: LogoutComponent},
+
+  {/*This route lazy loades */
+    path: 'product',
+    loadChildren: './app.module#AdminmoduleModule'
+  },
+
 ];
 export function mytokenGetter() {
   //return this.logservice.getUserLogStatus();
@@ -49,7 +56,7 @@ export function mytokenGetter() {
     JwtModule.forRoot({/* automatically assign bearer token with every http request service*/
       config: {
         tokenGetter: mytokenGetter,
-        whitelistedDomains: ['localhost:5000'],
+        whitelistedDomains: ['localhost:8086'],
         blacklistedRoutes: []
       }
     })

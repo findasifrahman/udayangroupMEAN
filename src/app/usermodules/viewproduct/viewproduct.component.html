@@ -1,12 +1,15 @@
-
+<br/>
+<h2 style="text-align: center;color: navy;font-weight: bold;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">
+  Our Products</h2>
+  <mat-divider></mat-divider>
 <br/>
 <div class="row" >
   <div class="col-md-3" style="padding-left: 50px ;">
       <mat-list role="list" >
         <mat-list-item *ngFor="let hero of gr" role="listitem">
-          <a mat-flat-button color="primary" style="width: 100% !important" (click)="changelist(hero.groupname)">{{hero.groupname}}</a>          
+          <a mat-flat-button color="primary" style="width: 100% !important" (click)="changelist(hero.groupname)">{{hero.groupname}}</a>
         </mat-list-item>
-      </mat-list>  
+      </mat-list>
   </div>
 
   <div class="col-md-9">
@@ -18,7 +21,7 @@
                     [image]="uri(AllElement[i + 0].image1)" [title]="AllElement[i + 0].producttitle"></app-productviewcard>
                   </a>
                 </div>
-          
+
                 <div class="col-md-3" *ngIf="AllElement[i + 1]">
                     <a (click)="proclick(AllElement[i + 1].Id)">
                       <app-productviewcard [name]="AllElement[i + 1].productname"

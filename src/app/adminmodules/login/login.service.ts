@@ -30,4 +30,7 @@ export class LoginService {
     let token = localStorage.getItem("jwt");
     return (this.jwtHelper.decodeToken(token)["role"]);
   }
+  logout(){
+    localStorage.removeItem('jwt');
+  }
 }

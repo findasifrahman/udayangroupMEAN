@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router'
 import { CommonModule } from '@angular/common';
 import { ProductgrouplistComponent } from './productsgroup/productgrouplist/productgrouplist.component';
 import { ProductgroupcreateComponent } from './productsgroup/productgroupcreate/productgroupcreate.component';
@@ -17,20 +18,26 @@ import { ProductdetailComponent } from './products/productdetail/productdetail.c
 import { producgroupmodels } from '../models/productgroupmodels';
 import { productmodelsform } from '../models/productmodels';
 import { LoginComponent } from './login/login.component';
+import { LogoutComponent } from './login/logout/logout.component';
 
+const routes: Routes = [
+  { path: 'product/list', component: ProductlistComponent },
+  { path: 'product/create', component: ProductcreateComponent },
+  { path: 'product/update/:id', component: ProducteditComponent },
+];
 
 @NgModule({
   declarations: [ProductgrouplistComponent, ProductgroupcreateComponent, ProductgroupeditComponent,
-    ProductcreateComponent,ProductlistComponent,ProducteditComponent,ProductdetailComponent, LoginComponent
-    
-    //FileUploadComponent
+    ProductcreateComponent,ProductlistComponent,ProducteditComponent,ProductdetailComponent,
+    LoginComponent, LogoutComponent
   ],
   imports: [
-    CommonModule,SharedmodulesModule,SharedComponentmoduleModule,FormsModule,
+    CommonModule,SharedmodulesModule,SharedComponentmoduleModule,FormsModule,RouterModule.forChild(routes),
     ReactiveFormsModule,producgroupmodels,HttpClientModule,productmodelsform
   ],
   exports:[ProductgrouplistComponent, ProductgroupcreateComponent, ProductgroupeditComponent,
-    ProductcreateComponent,ProductlistComponent,ProducteditComponent,ProductdetailComponent,LoginComponent
+    ProductcreateComponent,ProductlistComponent,ProducteditComponent,ProductdetailComponent,
+    LoginComponent, LogoutComponent
   ]
 })
 export class AdminmoduleModule { }
