@@ -23,6 +23,7 @@ export class MattreeComponent implements OnInit,OnChanges {
   @Input() datasourceval:any;
   @Output() parentClicktemit = new EventEmitter<any>();
   @Output() childClickemit = new EventEmitter<any>();
+  activeNode;
   constructor() { }
 
   groupByList(val){

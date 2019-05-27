@@ -1,19 +1,20 @@
-<mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+<mat-tree [dataSource]="dataSource" [treeControl]="treeControl" style="background-color: black;height: 100%;">
     <!-- This is the tree node template for leaf nodes -->
-    <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
+    <mat-tree-node *matTreeNodeDef="let node" style="background-color: black;color:whitesmoke" >
       <!-- use a disabled button to provide padding for tree leaf -->
-      <span (click)="productsclick(node.id)">{{node.name}}</span>
+      <button mat-icon-button disabled></button>
+      <span (click)="productsclick(node.id)"  >{{node.name}}</span>
     </mat-tree-node>
     <!-- This is the tree node template for expandable nodes -->
-    <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding>
+    <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding style="background-color: black;color:whitesmoke">
       <button mat-icon-button matTreeNodeToggle
               [attr.aria-label]="'toggle ' + node.name">
         <mat-icon class="mat-icon-rtl-mirror" >
           {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
         </mat-icon>
       </button>
-      <span (click)="groupByList(node.name)">{{node.name}}</span>
-
+      <span (click)="groupByList(node.name);activeNode = node" [ngClass]="{ 'background-highlight': activeNode === node }">{{node.name}}</span>
+      <mat-divider></mat-divider>
     </mat-tree-node>
   </mat-tree>
-  <mat-divider></mat-divider>
+

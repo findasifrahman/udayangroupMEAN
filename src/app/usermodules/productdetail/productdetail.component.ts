@@ -67,12 +67,12 @@ export class ProductdetailComponent implements OnInit {
     })
 
     this.pgService.getAll().pipe(switchMap((quote: any) => {
-          var flag = 0;
+          var flag = 0;this.groups = [];
           quote.map(element => {
             this.finalarr = [];
-            this.pservice.getbygroup(element.groupname)
-            .pipe(map((data) => {
+            this.pservice.getbygroup(element.groupname).pipe(map((data) => {
               this.productInGroup[flag] = [];
+              this.groups.push(element);
               data.map((dval)=>{
                 console.log(dval["Id"]);
                 this.productInGroup[flag].push({name: dval["productname"], id: String(dval["Id"])});
@@ -88,7 +88,6 @@ export class ProductdetailComponent implements OnInit {
                   this.finalarr.push(obj);
                   indexv++;
                   if(indexv == this.groups.length){
-                    //this.dataSource.data = this.finalarr;
                     this.datasource = this.finalarr;
                     //console.log(this.finalarr);
                   }

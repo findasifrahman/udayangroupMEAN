@@ -21,7 +21,7 @@ export class ViewproductComponent implements OnInit {
 
   constructor(private pService:ProductsService,private pgService:ProductgroupService,private router: Router) { }
   productInGroup:any[][];
-  groups;
+  groups:any[];
   finalarr : any = [];
   datasource: any = [];
   groupByList(val){
@@ -40,18 +40,18 @@ export class ViewproductComponent implements OnInit {
     this.pService.getAll().subscribe((posts) => {
       this.AllElement = posts;
     });
-    this.pgService.getAll().subscribe(posts =>{
-      this.groups = posts;
-    })
+
 
     this.pgService.getAll().pipe(switchMap((quote: any) => {
-          var flag = 0;
+          var flag = 0;this.groups = [];
           quote.map(element => {
             this.finalarr = [];
             this.pService.getbygroup(element.groupname)
             .pipe(map((data) => {
               this.productInGroup[flag] = [];
+              this.groups.push(element);
               data.map((dval)=>{
+                console.log(element.groupname);
                 console.log(dval["Id"]);
                 this.productInGroup[flag].push({name: dval["productname"], id: String(dval["Id"])});
               })
@@ -60,15 +60,14 @@ export class ViewproductComponent implements OnInit {
             })
             ).subscribe((data) => {
               if(quote.length == flag){
+                console.log(this.groups);
                 var indexv = 0;
                 this.groups.map((laval)=>{
                   var obj = {name: this.groups[indexv].groupname,children:this.productInGroup[indexv]};
                   this.finalarr.push(obj);
                   indexv++;
                   if(indexv == this.groups.length){
-                    //this.dataSource.data = this.finalarr;
                     this.datasource = this.finalarr;
-                    //console.log(this.finalarr);
                   }
                 })
               }

@@ -1,9 +1,4 @@
-<br/>
-<h2 style="text-align: center;color: navy;font-weight: bold;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">
-  Our Products</h2>
 
-
-<br/>
 <div class="row" >
   <div class="col-md-3" style="padding-left: 20px ;">
     <app-mattree [datasourceval]="datasource" (parentClicktemit)="groupByList($event)" (childClickemit)="productsclick($event)" >
@@ -16,6 +11,8 @@
   </div>
 
   <div class="col-md-9">
+      <h2 style="text-align: center;color: navy;font-weight: bold;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">
+          Our Products</h2>
         <div *ngFor="let hero of AllElement;let i=index">
           <div *ngIf="i % 4 ==0" >
             <div class="row">
