@@ -4,6 +4,7 @@ export const routeurls = Object.freeze({
   PRODUCT_API_BASE_URL:"/api/product",
   FILE_UPLOAD_BASE_URL:"/picture/upload",
   FILE_DELETE_BASE_URL:"/picture/delete",
+  File_UPLOAD_STATIC_VIEW_URL: "/api/uploads/",
   USER_API_BASE_URL: "/api/userModels",
   LOGIN_API_BASE_URL: "/api/login"
   //... more of your variables

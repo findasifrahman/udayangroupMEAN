@@ -5,30 +5,12 @@
 
 <br/>
 <div class="row" >
-  <div class="col-md-3" style="padding-left: 50px ;">
-    <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
-      <!-- This is the tree node template for leaf nodes -->
-      <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
-        <!-- use a disabled button to provide padding for tree leaf -->
-        <button mat-icon-button disabled></button>
-        <span (click)="proclicked(node.Id)">{{node.Id}}</span>
-      </mat-tree-node>
-      <!-- This is the tree node template for expandable nodes -->
-      <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding>
-        <button mat-icon-button matTreeNodeToggle
-                [attr.aria-label]="'toggle ' + node.name">
-          <mat-icon class="mat-icon-rtl-mirror" >
-            {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
-          </mat-icon>
-        </button>
-        <span (click)="changelist(node.name)">{{node.name}}</span>
-
-      </mat-tree-node>
-    </mat-tree>
-    <mat-divider></mat-divider>
+  <div class="col-md-3" style="padding-left: 20px ;">
+    <app-mattree [datasourceval]="datasource" (parentClicktemit)="groupByList($event)" (childClickemit)="productsclick($event)" >
+    </app-mattree>
      <!-- <mat-list role="list" >
         <mat-list-item *ngFor="let hero of gr" role="listitem">
-          <a mat-flat-button color="primary" style="width: 100% !important" (click)="changelist(hero.groupname)">{{hero.groupname}}</a>
+          <a mat-flat-button color="primary" style="width: 100% !important" (click)="groupByList(hero.groupname)">{{hero.groupname}}</a>
         </mat-list-item>
       </mat-list> -->
   </div>
@@ -38,25 +20,25 @@
           <div *ngIf="i % 4 ==0" >
             <div class="row">
                 <div class="col-md-3" *ngIf="AllElement[i + 0]">
-                  <a (click)="proclick(AllElement[i + 0].Id)"><app-productviewcard [name]="AllElement[i + 0].productname"
+                  <a (click)="productsclick(AllElement[i + 0].Id)"><app-productviewcard [name]="AllElement[i + 0].productname"
                     [image]="uri(AllElement[i + 0].image1)" [title]="AllElement[i + 0].producttitle"></app-productviewcard>
                   </a>
                 </div>
 
                 <div class="col-md-3" *ngIf="AllElement[i + 1]">
-                    <a (click)="proclick(AllElement[i + 1].Id)">
+                    <a (click)="productsclick(AllElement[i + 1].Id)">
                       <app-productviewcard [name]="AllElement[i + 1].productname"
                         [image]="uri(AllElement[i + 1].image1)" [title]="AllElement[i + 1].producttitle"></app-productviewcard>
                     </a>
                 </div>
                 <div class="col-md-3" *ngIf="AllElement[i + 2]">
-                  <a (click)="proclick(AllElement[i + 2].Id)">
+                  <a (click)="productsclick(AllElement[i + 2].Id)">
                     <app-productviewcard [name]="AllElement[i + 2].productname"
                       [image]="uri(AllElement[i + 2].image1)" [title]="AllElement[i + 2].producttitle"></app-productviewcard>
                   </a>
               </div>
               <div class="col-md-3" *ngIf="AllElement[i + 3]">
-                <a (click)="proclick(AllElement[i + 3].Id)">
+                <a (click)="productsclick(AllElement[i + 3].Id)">
                   <app-productviewcard [name]="AllElement[i + 3].productname"
                     [image]="uri(AllElement[i + 3].image1)" [title]="AllElement[i + 3].producttitle"></app-productviewcard>
                 </a>
