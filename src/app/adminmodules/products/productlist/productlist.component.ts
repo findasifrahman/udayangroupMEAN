@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { ConfirmationDialogComponent } from '../../../sharedComponentmodules/confirmation-dialog/confirmation-dialog.component';
 import { MatSnackBar } from '@angular/material';
 import { productmodelsform } from '../../../models/productmodels';
-
+import { saveAs } from 'file-saver';
 @Component({
   selector: 'app-productlist',
   templateUrl: './productlist.component.html',
@@ -67,5 +67,21 @@ export class ProductlistComponent implements OnInit {
 
   onUpdate(id) {
     this._router.navigate(['/admin/productupdate', id]);
+  }
+
+  down(){
+    this.pService.getAll().subscribe((posts) => {
+      this.downloadFile(posts);
+    });
+  }
+  downloadFile(data: any) {
+    const replacer = (key, value) => value === null ? '' : value; // specify how you want to handle null values here
+    const header = Object.keys(data[0]);
+    let csv = data.map(row => header.map(fieldName => JSON.stringify(row[fieldName], replacer)).join(','));
+    csv.unshift(header.join(','));
+    let csvArray = csv.join('\r\n');
+
+    var blob = new Blob([csvArray], {type: 'text/csv' })
+    saveAs(blob, "myFile.csv");
   }
 }
