@@ -4,7 +4,7 @@ import { FormBuilder, Validators, FormGroup, ReactiveFormsModule, FormsModule } 
 export interface productmodels {
   productname: string,
   producttitle: string,
-  productgroup: string,
+  productgroupId: number,
   productmeta: string,
   productseo: string,
   description: string,
@@ -24,7 +24,7 @@ export class productmodelsform {
   modelForms: FormGroup = this.formBuilder.group({
     productname: ["", Validators.required],
     producttitle: ["", Validators.required],
-    productgroup: ["",Validators.required],
+    productgroupId: [0],
     productmeta: [""],
     productseo: [""],
     description: ["",Validators.required],

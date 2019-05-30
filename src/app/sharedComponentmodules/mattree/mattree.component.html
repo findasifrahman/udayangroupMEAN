@@ -3,7 +3,7 @@
     <mat-tree-node *matTreeNodeDef="let node" style="background-color: black;color:whitesmoke" >
       <!-- use a disabled button to provide padding for tree leaf -->
       <button mat-icon-button disabled></button>
-      <span (click)="productsclick(node.id)"  >{{node.name}}</span>
+      <span (click)="productsclick(node.id)"  >{{node.productname}}</span>
     </mat-tree-node>
     <!-- This is the tree node template for expandable nodes -->
     <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding style="background-color: black;color:whitesmoke">
@@ -13,7 +13,7 @@
           {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
         </mat-icon>
       </button>
-      <span (click)="groupByList(node.name);activeNode = node" [ngClass]="{ 'background-highlight': activeNode === node }">{{node.name}}</span>
+      <span (click)="groupByList(node.id);" >{{node.groupname}}</span>
       <mat-divider></mat-divider>
     </mat-tree-node>
   </mat-tree>

@@ -19,6 +19,7 @@ export class ProductgroupcreateComponent implements OnInit {
 
   ngOnInit() {
     this.Forms = this.pgmodels.modelForms;
+    this.Forms.reset();
   }
   async FormSubmit() {
     const formValue = this.Forms.value;

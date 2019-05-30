@@ -29,6 +29,7 @@ export class ProductcreateComponent implements OnInit {
 
   ngOnInit() {
     this.Forms = this.productModels.modelForms;
+    this.Forms.reset();
     this.pgService.getAll().subscribe((posts) => {
       this.groups = posts as any;
       console.log(posts);

@@ -13,11 +13,11 @@ import { productmodelsform } from '../../../models/productmodels';
 })
 export class ProductlistComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
-  displayedColumns: string[] = ['productname','producttitle','productgroup','productmeta','price','buttons'];
-  displayedColumnsName: string[] = ['Product Name','Product Title','Product Group','Product Meta','price'];
+  displayedColumns: string[] = ['productname','producttitle','productmeta','price','buttons'];
+  displayedColumnsName: string[] = ['Product Name','Product Title','Product Meta','price'];
   AllElement: MatTableDataSource<productmodelsform>;
 
-  constructor(private snackBar: MatSnackBar, private pService:ProductsService, 
+  constructor(private snackBar: MatSnackBar, private pService:ProductsService,
     public dialog: MatDialog, public _router: Router) { }
 
   ngOnInit() {

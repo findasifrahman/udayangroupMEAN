@@ -17,25 +17,25 @@
           <div *ngIf="i % 4 ==0" >
             <div class="row">
                 <div class="col-md-3" *ngIf="AllElement[i + 0]">
-                  <a (click)="productsclick(AllElement[i + 0].Id)"><app-productviewcard [name]="AllElement[i + 0].productname"
+                  <a (click)="productsclick(AllElement[i + 0].id)"><app-productviewcard [name]="AllElement[i + 0].productname"
                     [image]="uri(AllElement[i + 0].image1)" [title]="AllElement[i + 0].producttitle"></app-productviewcard>
                   </a>
                 </div>
 
                 <div class="col-md-3" *ngIf="AllElement[i + 1]">
-                    <a (click)="productsclick(AllElement[i + 1].Id)">
+                    <a (click)="productsclick(AllElement[i + 1].id)">
                       <app-productviewcard [name]="AllElement[i + 1].productname"
                         [image]="uri(AllElement[i + 1].image1)" [title]="AllElement[i + 1].producttitle"></app-productviewcard>
                     </a>
                 </div>
                 <div class="col-md-3" *ngIf="AllElement[i + 2]">
-                  <a (click)="productsclick(AllElement[i + 2].Id)">
+                  <a (click)="productsclick(AllElement[i + 2].id)">
                     <app-productviewcard [name]="AllElement[i + 2].productname"
                       [image]="uri(AllElement[i + 2].image1)" [title]="AllElement[i + 2].producttitle"></app-productviewcard>
                   </a>
               </div>
               <div class="col-md-3" *ngIf="AllElement[i + 3]">
-                <a (click)="productsclick(AllElement[i + 3].Id)">
+                <a (click)="productsclick(AllElement[i + 3].id)">
                   <app-productviewcard [name]="AllElement[i + 3].productname"
                     [image]="uri(AllElement[i + 3].image1)" [title]="AllElement[i + 3].producttitle"></app-productviewcard>
                 </a>

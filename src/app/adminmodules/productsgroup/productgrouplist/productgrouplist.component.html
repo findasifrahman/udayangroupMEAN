@@ -17,10 +17,10 @@
       <ng-container matColumnDef="buttons">
         <mat-header-cell *matHeaderCellDef></mat-header-cell>
         <mat-cell *matCellDef="let AllElement" (click)="$event.stopPropagation()">
-          <button mat-button color="warn" (click)="onDelete(AllElement.Id)">
+          <button mat-button color="warn" (click)="onDelete(AllElement.id)">
             <mat-icon>delete</mat-icon>
           </button>
-          <button mat-button color="warn" (click)="onUpdate(AllElement.Id)">
+          <button mat-button color="warn" (click)="onUpdate(AllElement.id)">
             <mat-icon>update</mat-icon>
           </button>
         </mat-cell>

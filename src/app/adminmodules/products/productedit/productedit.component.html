@@ -20,9 +20,9 @@
         </mat-form-field>
         <mat-form-field>
           <mat-label>Group</mat-label>
-          <select matNativeControl  formControlName="productgroup" name="Group" required>
-  
-            <option *ngFor="let car of groups" [value]="car.groupname">
+          <select matNativeControl  formControlName="productgroupId" name="Group" required>
+
+            <option *ngFor="let car of groups" [value]="car.id">
               {{car.groupname}}
             </option>
           </select>

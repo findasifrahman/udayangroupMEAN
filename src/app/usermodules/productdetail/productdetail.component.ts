@@ -45,7 +45,7 @@ export class ProductdetailComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.id = params['id'];
-      console.log("update id--" + params['id']);
+      console.log("parmas--" + params['id']);
       this.pservice.getbyid(this.id).subscribe(data=>{
         this.name = data["productname"];
         this.title = data["producttitle"];
@@ -64,18 +64,19 @@ export class ProductdetailComponent implements OnInit {
     });
     this.pgService.getAll().subscribe(posts =>{
       this.groups = posts;
+      //this.datasource = posts;
     })
 
     this.pgService.getAll().pipe(switchMap((quote: any) => {
           var flag = 0;this.groups = [];
           quote.map(element => {
             this.finalarr = [];
-            this.pservice.getbygroup(element.groupname).pipe(map((data) => {
+            this.pservice.getbygroup(element.id).pipe(map((data) => {
               this.productInGroup[flag] = [];
               this.groups.push(element);
               data.map((dval)=>{
-                console.log(dval["Id"]);
-                this.productInGroup[flag].push({name: dval["productname"], id: String(dval["Id"])});
+                console.log(dval["id"]);
+                this.productInGroup[flag].push({productname: dval["productname"], id: String(dval["id"])});
               })
               flag++;
               //return data;
@@ -84,7 +85,8 @@ export class ProductdetailComponent implements OnInit {
               if(quote.length == flag){
                 var indexv = 0;
                 this.groups.map((laval)=>{
-                  var obj = {name: this.groups[indexv].groupname,children:this.productInGroup[indexv]};
+                  var obj = {groupname: this.groups[indexv].groupname,id: this.groups[indexv].id,
+                    products:this.productInGroup[indexv]};
                   this.finalarr.push(obj);
                   indexv++;
                   if(indexv == this.groups.length){
