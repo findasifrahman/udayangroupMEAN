@@ -7,3 +7,40 @@
     background: url('../../images/bg1.jpg') no-repeat center fixed;
     background-size: cover;
   }
+  .overlay {
+    position: absolute;
+    min-height: 93%;
+    min-width: 100%;
+    left: 0;
+
+    background: rgba(0, 0, 0, 0.6);
+  }
+
+  .description {
+    left: 50%;
+    position: absolute;
+    top: 45%;
+    transform: translate(-50%, -55%);
+    text-align: center;
+  }
+  .description h1 {
+    color: #6ab446;
+  }
+  .description p {
+    color: #fff;
+    font-size: 1.3rem;
+    line-height: 1.5;
+  }
+
+  .description button {
+    margin-top:50;
+    border:1px solid #6ab446;
+    background:transparent;
+    border-radius: 0;
+    color:yellow;
+  }
+  .description button:hover {
+    border:1px solid #fff;
+    background:#fff;
+    color:#000;
+  }

@@ -6,23 +6,23 @@
     </button>
     <div class="navbar-collapse collapse flex-sm-row-reverse" [ngClass]='{"show": isExpanded}'>
       <ul class="navbar-nav flex-grow-0">
-        <li class="nav-item" [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
-          <a class="nav-link text-light" style="font-size:14px" [routerLink]='["/"]'>Home</a>
+        <li class="nav-item"  [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
+          <a class="nav-link text-light" (click)="toggle()" style="font-size:14px" [routerLink]='["/"]'>Home</a>
         </li>
         <li class="nav-item" [routerLinkActive]='["link-active"]'>
-          <a class="nav-link text-light" style="font-size:14px" [routerLink]='["/viewproduct"]'>Products</a>
+          <a class="nav-link text-light" (click)="toggle()" style="font-size:14px" [routerLink]='["/viewproduct"]'>Products</a>
         </li>
         <li class="nav-item" [routerLinkActive]='["link-active"]'>
-          <a class="nav-link text-light" style="font-size:14px" [routerLink]='["/services"]'>Service</a>
+          <a class="nav-link text-light" (click)="toggle()" style="font-size:14px" [routerLink]='["/services"]'>Service</a>
         </li>
         <li class="nav-item" [routerLinkActive]='["link-active"]'>
-          <a class="nav-link text-light" style="font-size:14px" [routerLink]='["/clients"]'>Client</a>
+          <a class="nav-link text-light" (click)="toggle()" style="font-size:14px" [routerLink]='["/clients"]'>Client</a>
         </li>
         <li class="nav-item" [routerLinkActive]='["link-active"]'>
-          <a class="nav-link text-light" style="font-size:14px" [routerLink]='["/aboutus"]'>About Us</a>
+          <a class="nav-link text-light" (click)="toggle()" style="font-size:14px" [routerLink]='["/aboutus"]'>About Us</a>
         </li>
         <li class="nav-item" [routerLinkActive]='["link-active"]'>
-          <a class="nav-link text-light" style="font-size:14px" [routerLink]='["/contactus"]'>Contact Us</a>
+          <a class="nav-link text-light" (click)="toggle()" style="font-size:14px" [routerLink]='["/contactus"]'>Contact Us</a>
         </li>
 
       </ul>

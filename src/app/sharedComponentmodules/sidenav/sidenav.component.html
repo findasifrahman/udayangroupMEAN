@@ -1,11 +1,27 @@
     <!-- Sidebar -->
-    <div class="bg-light border-right" id="sidebar-wrapper" style="background-color:black">
-        <div class="sidebar-heading" style="color: blue">Administrator </div>
-        <div class="list-group list-group-flush">
-          <a [routerLink]='["/admin/productcreate"]' class="list-group-item list-group-item-action">Add Product</a>
-          <a [routerLink]='["/admin/productlist"]' class="list-group-item list-group-item-action ">Product List</a>
-          <a [routerLink]='["/admin/productgroupcreate"]' class="list-group-item list-group-item-action">Add Product Group</a>
-          <a [routerLink]='["/admin/productgrouplist"]' class="list-group-item list-group-item-action">Product Group List</a>
-          <a [routerLink]='["/admin/logout"]' class="list-group-item list-group-item-action">Logout</a>
-        </div>
-      </div>
+
+  <div id="viewport">
+    <div  id="sidebar" >
+        <header>
+            <a href="#">Administrator</a>
+        </header>
+
+          <li class="nav">
+            <a class="nav-link" [routerLink]='["/admin/productcreate"]'><i><mat-icon aria-hidden="false">home</mat-icon></i> Add Product</a>
+          </li>
+          <li class="nav">
+            <a class="nav-link" [routerLink]='["/admin/productlist"]'><i><mat-icon aria-hidden="false">assessment</mat-icon></i>Product List</a>
+          </li>
+          <li class="nav">
+            <a class="nav-link" [routerLink]='["/admin/productgroupcreate"]'><i><mat-icon aria-hidden="false">book</mat-icon></i>Add Product Group</a>
+          </li>
+          <li class="nav">
+            <a class="nav-link" [routerLink]='["/admin/productgrouplist"]'><i><mat-icon aria-hidden="false">date_range</mat-icon></i>Product Group List</a>
+          </li>
+          <li class="nav">
+            <a class="nav-link" [routerLink]='["/admin/logout"]' ><i><mat-icon aria-hidden="false">input</mat-icon></i>Logout</a>
+          </li>
+
+    </div>
+  </div>
+

@@ -6,6 +6,8 @@ import { ConfirmationDialogComponent } from '../../../sharedComponentmodules/con
 import { MatSnackBar } from '@angular/material';
 import { productmodelsform } from '../../../models/productmodels';
 import { saveAs } from 'file-saver';
+import { map,switchMap,mergeMap,concatMap,startWith, toArray } from 'rxjs/operators';
+
 @Component({
   selector: 'app-productlist',
   templateUrl: './productlist.component.html',
@@ -26,6 +28,7 @@ export class ProductlistComponent implements OnInit {
     this.AllElement.filter = value.trim().toLocaleLowerCase();
   }
   ngAfterViewInit(): void {
+
     this.pService.getAll().subscribe((posts) => {
       this.AllElement = new MatTableDataSource(posts as any);
       this.AllElement.paginator = this.paginator;

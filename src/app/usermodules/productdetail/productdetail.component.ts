@@ -62,12 +62,12 @@ export class ProductdetailComponent implements OnInit {
     this.pservice.getAll().subscribe((posts) => {
       this.AllElement = posts;
     });
-    this.pgService.getAll().subscribe(posts =>{
+    this.pgService.getAll().pipe(posts => this.datasource = posts).subscribe(posts =>{
       this.groups = posts;
-      //this.datasource = posts;
+       this.datasource = posts;
     })
 
-    this.pgService.getAll().pipe(switchMap((quote: any) => {
+    /*this.pgService.getAll().pipe(switchMap((quote: any) => {
           var flag = 0;this.groups = [];
           quote.map(element => {
             this.finalarr = [];
@@ -99,7 +99,7 @@ export class ProductdetailComponent implements OnInit {
           });
         return this.pservice.getbygroup(this.productInGroup)
       })).subscribe((pata) => {
-    })
+    })*/
 
   }
 }
