@@ -16,9 +16,13 @@ import { SharedComponentmoduleModule  } from './sharedComponentmodules/shared-co
 //
 import { AdminlayoutComponent } from './otherLayouts/adminlayout/adminlayout.component';
 import { UserviewlayoutComponent } from './otherLayouts/userviewlayout/userviewlayout.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
+
+import { OauthloginComponent } from './adminmodules/oauthlogin/oauthlogin.component';
 @NgModule({
   declarations: [
-    AppComponent,AdminlayoutComponent,UserviewlayoutComponent
+    AppComponent,AdminlayoutComponent,UserviewlayoutComponent,OauthloginComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +31,8 @@ import { UserviewlayoutComponent } from './otherLayouts/userviewlayout/userviewl
     UsermoduleModule,
     SharedComponentmoduleModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
     //AdminmoduleModule
   ],
   providers: [],

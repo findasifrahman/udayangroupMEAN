@@ -22,6 +22,7 @@ import { LogoutComponent } from './login/logout/logout.component';
 
 
 
+
 const routes: Routes = [
 
   { path: 'productlist', component: ProductlistComponent },

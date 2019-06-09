@@ -16,12 +16,15 @@ export class LoginService {
   }
   getUserLogStatus() {
     const token = localStorage.getItem('jwt');
-    console.log('get user logged in -----------');
-    console.log(this.jwtHelper.getTokenExpirationDate(token));
-    console.log(this.jwtHelper.decodeToken(token).role);
-    console.log(this.jwtHelper.decodeToken(token));
+    if(token !=null){
+      console.log('get user logged in -----------');
+      console.log(this.jwtHelper.getTokenExpirationDate(token));
+      console.log(this.jwtHelper.decodeToken(token).role);
+      console.log(this.jwtHelper.decodeToken(token));
 
-    return !this.jwtHelper.isTokenExpired(token);
+      return !this.jwtHelper.isTokenExpired(token);
+    }
+    else return false;
   }
   getToken() {
     return localStorage.getItem("jwt");

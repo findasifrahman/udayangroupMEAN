@@ -23,19 +23,24 @@ import { JwtModule } from '@auth0/angular-jwt';
 
 import { AdminlayoutComponent } from './otherLayouts/adminlayout/adminlayout.component';
 import { UserviewlayoutComponent } from './otherLayouts/userviewlayout/userviewlayout.component';
+import { OauthloginComponent } from './adminmodules/oauthlogin/oauthlogin.component';
+
+import { AuthGuard } from './auth/auth.guard';
 const routes: Routes = [
   { path:'', component:UserviewlayoutComponent,
     children:[
       { path:'', component: HomeComponent, pathMatch: 'full' },
       { path:'services', component: OurserviceComponent,},
       { path:'viewproduct', component: ViewproductComponent},
-      { path:'clients', component: ClientsComponent},
+      { path:'clients', component: ClientsComponent,canActivate:[AuthGuard]},
       { path:'aboutus', component: AboutusComponent},
       { path:'contactus', component: ContactusComponent},
       { path: 'productdetail/:id', component: ProductdetailComponent},
     ]
    },
-
+  {
+   path:'oauthlogin', component: OauthloginComponent
+  },
   /*{ path:'productgroupcreate', component: ProductgroupcreateComponent},
   { path: 'productgrouplist', component: ProductgrouplistComponent},
   { path: 'productgroupupdate/:id', component: ProductgroupeditComponent},

@@ -9,21 +9,24 @@ import { ThreecolmatgridComponent } from './threecolmatgrid/threecolmatgrid.comp
 import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 import { FileUploadComponent } from './file-upload/file-upload.component';
 
-import { FileSelectDirective } from 'ng2-file-upload';
+//import { FileSelectDirective } from 'ng2-file-upload';
+import { FileUploadModule } from 'ng2-file-upload';
+
 import { ProductviewcardComponent } from './productviewcard/productviewcard.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { MattreeComponent } from './mattree/mattree.component';
 @NgModule({
   declarations: [NavbarComponent, FooterComponent, SocialcontactcardComponent,
      ThreecolmatgridComponent, ConfirmationDialogComponent, FileUploadComponent,
-     FileSelectDirective,
+     //FileSelectDirective,
      ProductviewcardComponent,
      SidenavComponent,
      MattreeComponent],
   imports: [
     CommonModule,
     RouterModule,
-    SharedmodulesModule
+    SharedmodulesModule,
+    FileUploadModule
   ],
   entryComponents:[ConfirmationDialogComponent],
   exports:[NavbarComponent,FooterComponent,SocialcontactcardComponent,ThreecolmatgridComponent,
