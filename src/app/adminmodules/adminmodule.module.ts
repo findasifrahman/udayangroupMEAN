@@ -20,7 +20,7 @@ import { productmodelsform } from '../models/productmodels';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './login/logout/logout.component';
 
-
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 
 const routes: Routes = [
@@ -44,7 +44,7 @@ const routes: Routes = [
   ],
   imports: [
     CommonModule,SharedmodulesModule,SharedComponentmoduleModule,FormsModule,RouterModule.forChild(routes),
-    ReactiveFormsModule,producgroupmodels,HttpClientModule,productmodelsform
+    ReactiveFormsModule,producgroupmodels,HttpClientModule,productmodelsform,CKEditorModule
   ],
   exports:[ProductgrouplistComponent, ProductgroupcreateComponent, ProductgroupeditComponent,
     ProductcreateComponent,ProductlistComponent,ProducteditComponent,ProductdetailComponent,

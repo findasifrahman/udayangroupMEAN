@@ -6,6 +6,7 @@ import { __await } from 'tslib';
 import { MatSnackBar } from '@angular/material';
 import { productmodelsform,productmodels } from '../../../models/productmodels';
 import { ProductgroupService } from '../../productsgroup/productgroup.service';
+import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 @Component({
   selector: 'app-productcreate',
   templateUrl: './productcreate.component.html',
@@ -24,6 +25,7 @@ export class ProductcreateComponent implements OnInit {
   Forms: FormGroup;
   selectFormControl = new FormControl('', Validators.required);
   groups: any[];
+  public Editor = ClassicEditor;
   constructor(private pservice:ProductsService,private snackBar: MatSnackBar,private pgService:ProductgroupService,
     private formBuilder: FormBuilder, private router: Router,private productModels:productmodelsform) { }
 
@@ -36,6 +38,7 @@ export class ProductcreateComponent implements OnInit {
     });
   }
   async FormSubmit() {
+   console.log(this.Forms.controls['description'].value);
     this.Forms.patchValue({
       image1: this._file1id,
       image2: this._file2id,

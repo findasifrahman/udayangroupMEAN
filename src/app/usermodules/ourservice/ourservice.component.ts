@@ -10,7 +10,7 @@ import { FlipAnimation } from "../../animations/flipanimation/flipanimation";
 export class OurserviceComponent implements OnInit {
 
   icons: string[] = ['http','android','airplay','favorite','sd-storage','waves',];
-  titles: string[] = ['WEB DESIGN',' Mobile App Design','Desktop App Design','Electronics Design','Biometric Security','Embedded System'];
+  titles: string[] = ['Product development',' Order / production','Delivery','Hearing','Inquiry by e-mail','Final cost estimate'];
   colors: string[] = ["Highlight",'yellowgreen','orangered','orangered','Highlight','yellowgreen'];
   constructor(private cd: ChangeDetectorRef) { }
   flip = 'active';

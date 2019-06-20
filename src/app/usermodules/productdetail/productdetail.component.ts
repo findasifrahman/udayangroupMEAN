@@ -24,7 +24,10 @@ export class ProductdetailComponent implements OnInit {
   image2;
   image3;
   image4;
-
+  image1prev;
+  image2prev;
+  image3prev;
+  image4prev;
   productInGroup:any[][];
   groups;
   finalarr : any = [];
@@ -41,7 +44,18 @@ export class ProductdetailComponent implements OnInit {
   }
   constructor(private route: ActivatedRoute, private pservice:ProductsService,
     private pgService:ProductgroupService,private router: Router) { }
-
+  changemainpic1(){
+      this.image1 = this.image1prev;
+    }
+  changemainpic2(){
+    this.image1 = this.image2prev;
+  }
+  changemainpic3(){
+    this.image1 = this.image3prev;
+  }
+  changemainpic4(){
+    this.image1 = this.image4prev;
+  }
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.id = params['id'];
@@ -51,10 +65,10 @@ export class ProductdetailComponent implements OnInit {
         this.title = data["producttitle"];
         this.desc = data["description"];
         this.price = data["price"];
-        this.image1 = this.mainuri + data["image1"];
-        this.image2 = this.mainuri + data["image2"];
-        this.image3 = this.mainuri + data["image3"];
-        this.image4 = this.mainuri + data["image4"];
+        this.image1 = this.image1prev = this.mainuri + data["image1"];
+        this.image2 = this.image2prev = this.mainuri + data["image2"];
+        this.image3 = this.image3prev = this.mainuri + data["image3"];
+        this.image4 = this.image3prev = this.mainuri + data["image4"];
       })
     })
 

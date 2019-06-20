@@ -19,7 +19,7 @@ export class ViewproductComponent implements OnInit {
 
   mainuri = routeurls.BASE_API_URL + routeurls.File_UPLOAD_STATIC_VIEW_URL;
   AllElement: any;
-
+  Allgroup:any;
   constructor(private pService:ProductsService,private pgService:ProductgroupService,private router: Router) { }
   productInGroup:any[][];
   groups:any[];
@@ -77,10 +77,13 @@ export class ViewproductComponent implements OnInit {
     ))
   ).subscribe((val) => {(this.index)++;this.finalarr.push(val);if(this.index==3){this.datasource = this.finalarr;console.log(this.datasource);} });
 */
-
+    this.pgService.getAll().subscribe((posts) => {
+      this.Allgroup = posts;
+    });
     this.pService.getAll().subscribe((posts) => {
       this.AllElement = posts;
     });
+
     /*this.pgService.getAll().subscribe(val=>{
       this.datasource = val;
       console.log(val);

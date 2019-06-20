@@ -1,53 +1,52 @@
 
 <div class="row" style="left:0 !important" >
-  <div class="col-md-3" style="padding-left: 10px ;">
-    <app-mattree [datasourceval]="datasource" (parentClicktemit)="groupByList($event)" (childClickemit)="productsclick($event)" >
-    </app-mattree>
-     <!-- <mat-list role="list" >
-        <mat-list-item *ngFor="let hero of gr" role="listitem">
-          <a mat-flat-button color="primary" style="width: 100% !important" (click)="groupByList(hero.groupname)">{{hero.groupname}}</a>
-        </mat-list-item>
-      </mat-list> -->
-  </div>
+    <div class="col-md-2 picture" style="padding-left: 10px ;">
+      <app-mattree [datasourceval]="datasource" (parentClicktemit)="groupByList($event)" (childClickemit)="productsclick($event)" >
+      </app-mattree>
+       <!-- <mat-list role="list" >
+          <mat-list-item *ngFor="let hero of gr" role="listitem">
+            <a mat-flat-button color="primary" style="width: 100% !important" (click)="groupByList(hero.groupname)">{{hero.groupname}}</a>
+          </mat-list-item>
+        </mat-list> -->
+    </div>
 
-  <div class="col-md-9">
-      <h2 style="text-align: center;color: navy;font-weight: bold;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">
-          Our Products</h2>
-        <div *ngFor="let hero of AllElement;let i=index">
-          <div *ngIf="i % 4 ==0" >
-            <div class="row">
-                <div class="col-md-3" *ngIf="AllElement[i + 0]">
-                  <a (click)="productsclick(AllElement[i + 0].id)"><app-productviewcard [name]="AllElement[i + 0].productname"
-                    [image]="uri(AllElement[i + 0].image1)" [title]="AllElement[i + 0].producttitle"></app-productviewcard>
-                  </a>
-                </div>
+    <div class="col-md-10">
+        <h2 style="text-align: center;color: navy;font-weight: bold;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">
+            Our Products</h2>
+          <div *ngFor="let hero of AllElement;let i=index">
+            <div *ngIf="i % 3 ==0" >
+              <div class="row">
+                  <div class="col-md-4" *ngIf="AllElement[i + 0]">
+                    <a (click)="productsclick(AllElement[i + 0].id)"><app-productviewcard [name]="AllElement[i + 0].productname"
+                      [image]="uri(AllElement[i + 0].image1)" [title]="AllElement[i + 0].producttitle"></app-productviewcard>
+                    </a>
+                  </div>
 
-                <div class="col-md-3" *ngIf="AllElement[i + 1]">
-                    <a (click)="productsclick(AllElement[i + 1].id)">
-                      <app-productviewcard [name]="AllElement[i + 1].productname"
-                        [image]="uri(AllElement[i + 1].image1)" [title]="AllElement[i + 1].producttitle"></app-productviewcard>
+                  <div class="col-md-4" *ngIf="AllElement[i + 1]">
+                      <a (click)="productsclick(AllElement[i + 1].id)">
+                        <app-productviewcard [name]="AllElement[i + 1].productname"
+                          [image]="uri(AllElement[i + 1].image1)" [title]="AllElement[i + 1].producttitle"></app-productviewcard>
+                      </a>
+                  </div>
+                  <div class="col-md-4" *ngIf="AllElement[i + 2]">
+                    <a (click)="productsclick(AllElement[i + 2].id)">
+                      <app-productviewcard [name]="AllElement[i + 2].productname"
+                        [image]="uri(AllElement[i + 2].image1)" [title]="AllElement[i + 2].producttitle"></app-productviewcard>
                     </a>
                 </div>
-                <div class="col-md-3" *ngIf="AllElement[i + 2]">
-                  <a (click)="productsclick(AllElement[i + 2].id)">
-                    <app-productviewcard [name]="AllElement[i + 2].productname"
-                      [image]="uri(AllElement[i + 2].image1)" [title]="AllElement[i + 2].producttitle"></app-productviewcard>
-                  </a>
+
               </div>
-              <div class="col-md-3" *ngIf="AllElement[i + 3]">
-                <a (click)="productsclick(AllElement[i + 3].id)">
-                  <app-productviewcard [name]="AllElement[i + 3].productname"
-                    [image]="uri(AllElement[i + 3].image1)" [title]="AllElement[i + 3].producttitle"></app-productviewcard>
-                </a>
-              </div>
+              <br/>
             </div>
             <br/>
-          </div>
-        </div>
-        <br/>
-        <br/>
-  </div>
 
-</div>
+          </div>
+          <br/>
+          <br/>
+          <br/>
+
+    </div>
+
+  </div>
 
 
