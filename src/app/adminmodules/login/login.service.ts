@@ -11,12 +11,12 @@ export class LoginService {
   constructor(public http: HttpClient, private jwtHelper: JwtHelperService) { }
 
   submit(form: any) : Observable<any>  {
-    let credentials = form;//JSON.stringify(form.value);
+    let credentials = form; // JSON.stringify(form.value);
     return this.http.post(routeurls.BASE_API_URL +  routeurls.LOGIN_API_BASE_URL, credentials);
   }
   getUserLogStatus() {
     const token = localStorage.getItem('jwt');
-    if(token !=null){
+    if( token != null ){
       console.log('get user logged in -----------');
       console.log(this.jwtHelper.getTokenExpirationDate(token));
       console.log(this.jwtHelper.decodeToken(token).role);

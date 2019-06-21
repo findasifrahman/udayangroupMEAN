@@ -2,20 +2,19 @@ import { Component, OnInit,Input } from '@angular/core';
 import { ActivatedRoute,Router } from '@angular/router';
 import { ProductsService } from '../../adminmodules/products/products.service';
 import { ProductgroupService } from '../../adminmodules/productsgroup/productgroup.service';
-import { map,switchMap } from 'rxjs/operators'
+
 @Component({
   selector: 'app-productdetail',
   templateUrl: './productdetail.component.html',
   styleUrls: ['./productdetail.component.css']
 })
 export class ProductdetailComponent implements OnInit {
-  @Input() parentClicktemit:any;
-  @Input() childClickemit:any;
+  @Input() parentClicktemit: any;
+  @Input() childClickemit: any;
   mainuri = "http://localhost:8086/api/uploads/";
 
-  gr:any;
-
-  id:any;
+  gr: any;
+  id: any;
   name;
   title;
   desc;
@@ -28,39 +27,39 @@ export class ProductdetailComponent implements OnInit {
   image2prev;
   image3prev;
   image4prev;
-  productInGroup:any[][];
+  productInGroup: any[][];
   groups;
-  finalarr : any = [];
+  finalarr: any = [];
   datasource: any = [];
 
   AllElement: any;
-  groupByList(val){
+  groupByList(val) {
     this.pservice.getbygroup(val).subscribe((posts) => {
       this.AllElement = posts;
     });
   }
-  productsclick(val){
+  productsclick(val) {
     this.router.navigate(["/productdetail/" + val]);
   }
   constructor(private route: ActivatedRoute, private pservice:ProductsService,
     private pgService:ProductgroupService,private router: Router) { }
-  changemainpic1(){
+  changemainpic1() {
       this.image1 = this.image1prev;
     }
-  changemainpic2(){
+  changemainpic2() {
     this.image1 = this.image2prev;
   }
-  changemainpic3(){
+  changemainpic3() {
     this.image1 = this.image3prev;
   }
-  changemainpic4(){
+  changemainpic4() {
     this.image1 = this.image4prev;
   }
   ngOnInit() {
-    this.route.params.subscribe(params => {
+    this.route.params.subscribe( params => {
       this.id = params['id'];
       console.log("parmas--" + params['id']);
-      this.pservice.getbyid(this.id).subscribe(data=>{
+      this.pservice.getbyid(this.id).subscribe( data => {
         this.name = data["productname"];
         this.title = data["producttitle"];
         this.desc = data["description"];
@@ -76,9 +75,10 @@ export class ProductdetailComponent implements OnInit {
     this.pservice.getAll().subscribe((posts) => {
       this.AllElement = posts;
     });
-    this.pgService.getAll().pipe(posts => this.datasource = posts).subscribe(posts =>{
+    this.pgService.getAll().pipe( posts => this.datasource = posts).subscribe( posts => 
+    {
       this.groups = posts;
-       this.datasource = posts;
+      this.datasource = posts;
     })
 
     /*this.pgService.getAll().pipe(switchMap((quote: any) => {

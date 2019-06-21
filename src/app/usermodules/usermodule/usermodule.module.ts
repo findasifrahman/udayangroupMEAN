@@ -13,13 +13,10 @@ import { ContactusComponent } from '../contactus/contactus.component';
 import { ProductdetailComponent } from '../productdetail/productdetail.component';
 
 @NgModule({
-  declarations: [HomeComponent, OurserviceComponent, ViewproductComponent, ClientsComponent, 
-    AboutusComponent, ContactusComponent, ProductdetailComponent],
+  declarations: [ HomeComponent, OurserviceComponent, ViewproductComponent, ClientsComponent,
+                  AboutusComponent, ContactusComponent, ProductdetailComponent ],
   imports: [
-    CommonModule,
-    SharedComponentmoduleModule,
-    DirectivesModule,
-    SharedmodulesModule 
+    CommonModule, SharedComponentmoduleModule, DirectivesModule, SharedmodulesModule
   ]
 })
 export class UsermoduleModule { }

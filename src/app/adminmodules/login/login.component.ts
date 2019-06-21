@@ -12,19 +12,19 @@ export class LoginComponent implements OnInit {
   simpleSnackBarRef: any;
   Forms: any;
   constructor(private snackBar: MatSnackBar, private logservice: LoginService,
-    private formBuilder: FormBuilder,private router:Router) { }
+              private formBuilder: FormBuilder, private router: Router) { }
 
   ngOnInit() {
     this.Forms = this.formBuilder.group({
-      username: ["", Validators.required],
-      password: ["", Validators.required],
+      username: ['', Validators.required],
+      password: ['', Validators.required],
     });
   }
 
   async FormSubmit() {
     const formValue = this.Forms.value;
     await this.logservice.submit(formValue).subscribe(response => {
-      let token = (<any>response).token;
+      const token = (response as any).token;
       localStorage.setItem("jwt", token);
       console.log(token);
       console.log(this.logservice.getrole());

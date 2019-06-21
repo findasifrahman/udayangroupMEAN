@@ -1,11 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ProductsService } from '../../adminmodules/products/products.service';
 import { ProductgroupService } from '../../adminmodules/productsgroup/productgroup.service';
-import { map,switchMap,mergeMap,concatMap,startWith, toArray } from 'rxjs/operators';
-import { from,concat } from 'rxjs';
+import { map, mergeMap, concatMap, toArray } from 'rxjs/operators';
+import { from } from 'rxjs';
 import { Router } from '@angular/router';
-import { routeurls } from "../../adminmodules/routeurls/routeurls";
-
+import { routeurls } from '../../adminmodules/routeurls/routeurls';
 
 @Component({
   selector: 'app-viewproduct',
@@ -14,69 +13,73 @@ import { routeurls } from "../../adminmodules/routeurls/routeurls";
 })
 
 export class ViewproductComponent implements OnInit {
-  @Input() parentClicktemit:any;
-  @Input() childClickemit:any;
+  @Input() parentClicktemit: any;
+  @Input() childClickemit: any;
 
   mainuri = routeurls.BASE_API_URL + routeurls.File_UPLOAD_STATIC_VIEW_URL;
   AllElement: any;
-  Allgroup:any;
-  constructor(private pService:ProductsService,private pgService:ProductgroupService,private router: Router) { }
-  productInGroup:any[][];
-  groups:any[];
-  finalarr : any = [];
+  Allgroup: any;
+  constructor( private pService: ProductsService, private pgService: ProductgroupService,
+               private router: Router) { }
+  productInGroup: any[][];
+  groups: any[];
+  finalarr: any = [];
   datasource: any = [];
-  groupByList(val){
+  index: any = 0;
+  groupByList(val) {
     console.log(val);
     this.pService.getbygroup(val).subscribe((posts) => {
       this.AllElement = posts;
     });
   }
-  productsclick(val){
-    this.router.navigate(["/productdetail/" + val]);
+  productsclick( val ) {
+    this.router.navigate([ '/productdetail/' + val ]);
   }
-  uri(ii){
+  uri(ii) {
     return this.mainuri + ii;
   }
-  index:any = 0;
   ngOnInit() {
     this.productInGroup = [];
-    //console.log(this.pgService.getAll());
-
+    // console.log(this.pgService.getAll());
 
     const productGroup$ = this.pgService.getAll();
 
     productGroup$.pipe(
       mergeMap(prga => from(prga)),
-      concatMap(prgi => this.pService.getbygroup(prgi["id"]).pipe(
+      concatMap(prgi => this.pService.getbygroup(prgi['id']).pipe(
         map(products => {
-          let obj = {};
-          obj['id'] = prgi["id"];
-          obj['groupname'] = prgi["groupname"];
-          obj['products'] = products;
+          const obj = { id: '', groupname: '', products: '' };
+          obj.id = prgi['id'];
+          obj.groupname = prgi['groupname'];
+          obj.products = products;
           return obj;
         })
       )),
       toArray()
-    ).subscribe(val => this.datasource = val )
+    ).subscribe(val => this.datasource = val );
 
     /*productGroup$.pipe(
-    mergeMap((productGroupArray) => from(productGroupArray)),
-    concatMap(
-      (productGroupItem) => this.pService.getbygroup(productGroupItem["id"]).pipe(
-      map((product) => {
-        let json = {};
+        mergeMap((productGroupArray) => from(productGroupArray)),
+        concatMap(
+          (productGroupItem) => this.pService.getbygroup(productGroupItem["id"]).pipe(
+          map((product) => {
+            let json = {};
 
-        json['id'] = productGroupItem["id"];
-        json['groupname'] = productGroupItem["groupname"];
-        json['products'] = product;
-        //console.log(json);
-        this.finalarr.push(json);
+            json['id'] = productGroupItem["id"];
+            json['groupname'] = productGroupItem["groupname"];
+            json['products'] = product;
+            //console.log(json);
+            this.finalarr.push(json);
+            this.datasource = this.finalarr;
+            return json;
+          })
+        ))
+    ).subscribe((val) => {(this.index)++;this.finalarr.push(val);if(this.index==3) {
         this.datasource = this.finalarr;
-        return json;
-      })
-    ))
-  ).subscribe((val) => {(this.index)++;this.finalarr.push(val);if(this.index==3){this.datasource = this.finalarr;console.log(this.datasource);} });
-*/
+        console.log(this.datasource);
+      }
+    });
+    */
     this.pgService.getAll().subscribe((posts) => {
       this.Allgroup = posts;
     });
